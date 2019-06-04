@@ -42,5 +42,3 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(find_transform src/find_velodyne_points.cpp src/Corners.cpp) 
 target_link_libraries(find_transform ${PCL_LIBRARIES}) 
 target_link_libraries(find_transform ${catkin_LIBRARIES})
-
-
