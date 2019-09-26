@@ -101,6 +101,8 @@ The file contains specifications about the following:
 
 >initial_rot_x initial_rot_y initial_rot_z
 
+>initial_translate_x initial_translate_y initial_translate_z
+
 >lidar_type
 
 `x-` and `x+`, `y-` and `y+`, `z-` and `z+` are used to remove unwanted points in the cloud and are specfied in meters. The filtred point cloud makes it easier to mark the board edges. The filtered pointcloud contains all points   

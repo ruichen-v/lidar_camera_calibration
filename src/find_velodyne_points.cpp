@@ -81,7 +81,7 @@ void callback_noCam(const sensor_msgs::PointCloud2ConstPtr& msg_pc,
 	lidarToCamera = qlidarToCamera.matrix();
 
 	std:: cout << "\n\nInitial Rot" << lidarToCamera << "\n";
-	point_cloud = intensityByRangeDiff(point_cloud, config);
+	point_cloud = intensityByRangeDiff(point_cloud, config, config.lidar_type);
 	// x := x, y := -z, z := y
 
 	//pcl::io::savePCDFileASCII ("/home/vishnu/PCDs/msg_point_cloud.pcd", pc);  
@@ -147,7 +147,7 @@ void callback(const sensor_msgs::CameraInfoConstPtr& msg_info,
 
 	lidarToCamera = qlidarToCamera.matrix();
 
-	point_cloud = intensityByRangeDiff(point_cloud, config);
+	point_cloud = intensityByRangeDiff(point_cloud, config, config.lidar_type);
 	// x := x, y := -z, z := y
 
 	//pcl::io::savePCDFileASCII ("/home/vishnu/PCDs/msg_point_cloud.pcd", pc);  
