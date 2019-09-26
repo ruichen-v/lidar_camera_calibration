@@ -197,16 +197,14 @@ pcl::PointCloud<myPointXYZRID> normalizeIntensity(pcl::PointCloud<myPointXYZRID>
 pcl::PointCloud<myPointXYZRID> intensityByRangeDiff(pcl::PointCloud<myPointXYZRID> point_cloud, config_settings config, int lidar_type)
 {   
 
-    if (lidar_type == 0)
+
+    std::vector<std::vector<myPointXYZRID*>> rings(16); //! for velodyne 16
+    if (lidar_type == 1)
     {
-        std::vector<std::vector<myPointXYZRID*>> rings(16); //! for velodyne 16
-    } elseif (lidar_type == 1)
-    {
-        std::vector<std::vector<myPointXYZRID*>> rings(40); //! for hesai 40p
-    } else {
+        rings = std::vector<std::vector<myPointXYZRID*>>(40); //! for hesai 40p
+    } else if (lidar_type != 0) {
         assert(false);
     }
-	
 	
 	for(pcl::PointCloud<myPointXYZRID>::iterator pt = point_cloud.points.begin() ; pt < point_cloud.points.end(); pt++){
 		pt->range = (pt->x * pt->x + pt->y * pt->y + pt->z * pt->z);
